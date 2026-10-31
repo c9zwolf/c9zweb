@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050505">
+<title>C9Z Web Flasher</title>
+<meta name="description" content="C9Z Web Flasher — install compatible C9Z firmware to ESP devices over USB from your browser.">
+<script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+<style>
+:root{color-scheme:dark;--bg:#050505;--panel:#0d0d0d;--panel2:#121212;--line:#292929;--text:#f4f4f4;--muted:#a2a2a2;--red:#ff2424;--red2:#a90000;--green:#5be49b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#281010 0,transparent 48%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.65}a{color:inherit}.wrap{width:min(1080px,calc(100% - 32px));margin:auto}.top{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-size:23px;font-weight:900;text-decoration:none;letter-spacing:.4px}.brand b{color:var(--red)}.toplinks{display:flex;gap:10px;align-items:center}.toplinks a{color:#ddd;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:14px}.toplinks a:hover{border-color:var(--red)}.hero{text-align:center;padding:56px 0 32px}.eyebrow{display:inline-block;border:1px solid #612020;color:#ff8b8b;background:#1a0808;border-radius:999px;padding:5px 12px;font-size:12px;letter-spacing:1px}.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.12;margin:17px 0 13px;letter-spacing:-1.5px}.hero h1 span{color:var(--red)}.hero p{color:var(--muted);max-width:700px;margin:0 auto;font-size:16px}.layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(270px,.8fr);gap:18px;align-items:start;margin:14px 0 48px}.card{background:linear-gradient(160deg,#111,#080808);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 18px 55px #0007}.card h2{font-size:20px;margin:0 0 5px}.sub{color:var(--muted);font-size:13px;margin:0 0 22px}.field{margin:18px 0}.field label{display:block;font-weight:700;margin-bottom:8px;font-size:14px}.field select,.field input[type=file]{width:100%;background:#070707;color:var(--text);border:1px solid #383838;border-radius:11px;padding:12px;font:inherit;min-height:47px}.field input[type=file]{font-size:13px}.hint{font-size:12px;color:var(--muted);margin:7px 0 0}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:5px 10px;font-size:12px;color:#ddd}.dot{width:7px;height:7px;background:#777;border-radius:50%;display:inline-block}.dot.ready{background:var(--green)}.action{display:flex;flex-wrap:wrap;align-items:center;gap:13px;margin-top:22px}.install-wrap{display:flex;align-items:center;min-height:48px}.install-wrap[hidden]{display:none}.install-wrap esp-web-install-button{--esp-tools-button-color:var(--red);--esp-tools-button-text-color:white;--esp-tools-button-border-radius:12px}.status{margin-top:17px;padding:12px 14px;background:#090909;border:1px solid var(--line);border-radius:12px;color:var(--muted);font-size:13px;overflow-wrap:anywhere}.status.good{border-color:#225d41;color:#b9f5d6}.status.warn{border-color:#714c19;color:#ffd99c}.status.bad{border-color:#702424;color:#ffaaaa}.side-list{padding:0;list-style:none;margin:18px 0 0}.side-list li{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid #202020;color:#d4d4d4;font-size:14px}.num{flex:none;width:25px;height:25px;border-radius:8px;background:#241010;color:#ff7474;display:grid;place-items:center;font-weight:800;font-size:12px}.warning{border:1px solid #6d4b1c;background:#171006;color:#ffdfaa;border-radius:14px;padding:14px;font-size:13px;margin-top:18px}.danger{border:1px solid #682323;background:#180909;color:#ffc1c1;border-radius:14px;padding:14px;font-size:13px;margin-top:14px}.requirements{margin:36px 0 50px}.requirements h2{font-size:24px;margin-bottom:8px}.requirements>p{color:var(--muted);margin-top:0}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{width:100%;border-collapse:collapse;min-width:640px;background:#090909}th,td{text-align:right;padding:13px 15px;border-bottom:1px solid #242424;font-size:13px}th{background:#141414;color:#fff}td{color:#d1d1d1}code{direction:ltr;unicode-bidi:embed;background:#171717;border:1px solid #303030;border-radius:5px;padding:2px 5px;color:#ffb2b2;font-size:12px}.foot{border-top:1px solid var(--line);padding:20px 0 34px;color:#777;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.hidden{display:none!important}@media(max-width:760px){.layout{grid-template-columns:1fr}.hero{padding-top:38px}.card{padding:18px}.top{height:auto;min-height:68px}.toplinks a{font-size:12px;padding:6px 9px}.toplinks a:first-child{display:none}}
+</style>
+</head>
+<body>
+<header class="wrap top"><a class="brand" href="C9Z-Store-ONE-FILE.html">C9Z<b>.</b> <span style="font-size:12px;color:#aaa;font-weight:500">WEB FLASHER</span></a><nav class="toplinks"><a href="C9Z-Store-ONE-FILE.html">العودة إلى المتجر</a><a href="#requirements">متطلبات Firmware</a></nav></header>
+<main class="wrap">
+<section class="hero"><span class="eyebrow">USB • SERIAL • ESP32</span><h1>C9Z <span>Web Flasher</span></h1><p>ثبّت نظام C9Z على اللوحات المتوافقة مباشرة من المتصفح عبر USB. اختر نوع الشريحة وحدد ملف Firmware مدمجًا وصحيحًا لجهازك، ثم ابدأ عملية التثبيت.</p></section>
+<section class="layout">
+<div class="card">
+<h2>تثبيت النظام</h2><p class="sub">اختر اللوحة ثم حمّل ملف <code>.bin</code> المدمج والمبني خصيصًا لها.</p>
+<div class="field"><label for="board">1. نوع الجهاز</label><select id="board">
+<option value="cyd">CYD-2432S028 — ESP32</option>
+<option value="m5plus2">M5Stick Plus2 — ESP32</option>
+<option value="m5s3">M5StickS3 — ESP32-S3</option>
+<option value="wroom">ESP32-WROOM-32</option>
+<option value="s3">ESP32-S3</option>
+<option value="c9z1">C9Z-1</option><option value="c9z2">C9Z-2</option><option value="c9z3">C9Z-3</option><option value="c9z4">C9Z-4</option><option value="c9z5">C9Z-5</option><option value="c9z6">C9Z-6</option><option value="c9z7">C9Z-7</option><option value="c9z8">C9Z-8</option><option value="c9z9">C9Z-9</option><option value="c9z10">C9Z-10</option><option value="other">جهاز آخر / لوحة مخصصة</option>
+</select><p class="hint" id="boardHint">الشريحة المحددة: ESP32. تأكد أن ملف النظام مبني للوحة نفسها.</p></div>
+<div class="field hidden" id="chipField"><label for="chip">نوع الشريحة الفعلي في جهاز C9Z</label><select id="chip"><option value="ESP32">ESP32</option><option value="ESP32-S3">ESP32-S3</option><option value="ESP32-C3">ESP32-C3</option><option value="ESP32-S2">ESP32-S2</option><option value="ESP32-C6">ESP32-C6</option><option value="ESP32-H2">ESP32-H2</option><option value="ESP32-P4">ESP32-P4</option></select><p class="hint">اختر النوع حسب الشريحة الفعلية، وليس اسم المنتج فقط.</p></div>
+<div class="field"><label for="firmware">2. ملف Firmware المدمج (.bin)</label><input id="firmware" type="file" accept=".bin,application/octet-stream"><p class="hint">يجب أن يكون ملفًا مدمجًا يبدأ من العنوان 0x0، ويحتوي ملفات الإقلاع والتقسيم والتطبيق الصحيحة لهذا الجهاز. لا تختَر ملف التطبيق وحده.</p></div>
+<div class="action"><span id="filePill" class="pill"><span class="dot"></span><span id="fileLabel">لم يتم اختيار ملف</span></span><div class="install-wrap" id="installWrap" hidden><esp-web-install-button id="installButton"><button slot="activate">Connect &amp; Install C9Z</button><span slot="unsupported">هذا المتصفح لا يدعم Web Serial. استخدم Chrome أو Edge على الكمبيوتر عبر HTTPS.</span><span slot="not-allowed">يجب فتح الصفحة عبر HTTPS أو localhost، وليس من ملف محلي.</span></esp-web-install-button></div></div>
+<div id="status" class="status warn" role="status" aria-live="polite">بانتظار اختيار ملف Firmware. لا يبدأ التثبيت قبل اختياره.</div>
+<div class="warning"><strong>قبل التثبيت:</strong> استخدم كابل USB يدعم نقل البيانات، وأغلق Arduino Serial Monitor أو أي برنامج يستخدم المنفذ. قد يُمسح النظام والبيانات الموجودة على الجهاز.</div>
+<div class="danger"><strong>تنبيه:</strong> ملفات C9Z الرسمية غير مرفقة بعد. هذه الصفحة لا تنشئ نظام C9Z تلقائيًا؛ يجب توفير Firmware موثوق ومبني للوحة المحددة. لا تفلش ملفًا مخصصًا للوحة مختلفة.</div>
+</div>
+<aside class="card"><h2>طريقة الاستخدام</h2><p class="sub">اتبع الخطوات قبل الضغط على التثبيت.</p><ol class="side-list"><li><span class="num">1</span><span>تأكد من اسم اللوحة والشريحة الموجودة فعليًا داخل الجهاز.</span></li><li><span class="num">2</span><span>اختر ملف C9Z المدمج بصيغة <code>.bin</code> والمناسب لهذه اللوحة.</span></li><li><span class="num">3</span><span>وصل الجهاز بالكمبيوتر عبر USB، ثم اضغط Connect &amp; Install.</span></li><li><span class="num">4</span><span>اختر المنفذ التسلسلي الصحيح من نافذة المتصفح ووافق على التثبيت.</span></li><li><span class="num">5</span><span>لا تفصل الكابل حتى تظهر رسالة اكتمال العملية.</span></li></ol><div class="warning">إذا لم يظهر المنفذ، جرّب كابل بيانات آخر، أو تعريف USB-to-Serial المناسب، أو زر BOOT أثناء التوصيل حسب اللوحة.</div></aside>
+</section>
+<section class="requirements" id="requirements"><h2>ملفات Firmware المطلوبة لكل لوحة</h2><p>لا يمكن تحديد ملف واحد لكل الأجهزة لمجرد أنها تحمل اسم C9Z؛ يجب بناء Firmware لكل نوع شريحة وتخطيط فلاش مناسب.</p><div class="table-wrap"><table><thead><tr><th>الجهاز</th><th>نوع الشريحة المتوقع</th><th>الملف المطلوب للفلاشر</th><th>الحالة</th></tr></thead><tbody>
+<tr><td>CYD-2432S028</td><td>ESP32</td><td><code>c9z-cyd-merged.bin</code></td><td>يتطلب البناء المطابق للوحة</td></tr>
+<tr><td>M5Stick Plus2</td><td>ESP32</td><td><code>c9z-m5stick-plus2-merged.bin</code></td><td>يتطلب البناء المطابق للوحة</td></tr>
+<tr><td>M5StickS3</td><td>ESP32-S3</td><td><code>c9z-m5sticks3-merged.bin</code></td><td>يتطلب البناء المطابق للوحة</td></tr>
+<tr><td>ESP32-WROOM-32</td><td>ESP32</td><td><code>c9z-wroom32-merged.bin</code></td><td>يتطلب تحديد GPIO والذاكرة</td></tr>
+<tr><td>ESP32-S3</td><td>ESP32-S3</td><td><code>c9z-esp32s3-merged.bin</code></td><td>يتطلب تحديد اللوحة والذاكرة</td></tr>
+<tr><td>C9Z-1 إلى C9Z-10</td><td>يختلف حسب القطعة</td><td><code>c9z-N-merged.bin</code></td><td>يجب توثيق الشريحة لكل موديل</td></tr>
+<tr><td>لوحات أخرى</td><td>ESP32 family مدعومة</td><td>ملف مدمج خاص باللوحة</td><td>تحقق من توافق الشريحة</td></tr>
+</tbody></table></div>
+<p style="margin-top:14px">ملف ESP32 المدمج عادةً يجمع bootloader وpartition table وboot_app0 والتطبيق في ملف واحد مع عناوين الفلاش الصحيحة. تختلف الإعدادات حسب الشريحة وإصدار بيئة البناء وحجم الفلاش. لا تستخدم ملفًا مدمجًا عامًا دون التحقق من إعدادات اللوحة.</p></section>
+</main>
+<footer class="wrap foot"><span>© C9Z — Web Flasher</span><span>USB flashing powered by <a href="https://github.com/esphome/esp-web-tools" target="_blank" rel="noopener">ESP Web Tools</a></span></footer>
+<script>
+const boardSelect = document.getElementById('board');
+const chipSelect = document.getElementById('chip');
+const chipField = document.getElementById('chipField');
+const firmwareInput = document.getElementById('firmware');
+const installWrap = document.getElementById('installWrap');
+const installButton = document.getElementById('installButton');
+const statusBox = document.getElementById('status');
+const fileLabel = document.getElementById('fileLabel');
+const filePill = document.getElementById('filePill');
+const boardHint = document.getElementById('boardHint');
+let firmwareUrl = null;
+let manifestUrl = null;
+const fixedBoards = {
+  cyd: {name:'CYD-2432S028', chip:'ESP32'},
+  m5plus2: {name:'M5Stick Plus2', chip:'ESP32'},
+  m5s3: {name:'M5StickS3', chip:'ESP32-S3'},
+  wroom: {name:'ESP32-WROOM-32', chip:'ESP32'},
+  s3: {name:'ESP32-S3', chip:'ESP32-S3'}
+};
+function chosenBoard(){
+  const id=boardSelect.value;
+  if(fixedBoards[id]) return {...fixedBoards[id], id};
+  const label=id==='other'?'Custom ESP board':id.toUpperCase().replace('C9Z','C9Z-');
+  return {name:label, chip:chipSelect.value, id};
+}
+function revokeUrls(){
+  if(firmwareUrl) URL.revokeObjectURL(firmwareUrl);
+  if(manifestUrl) URL.revokeObjectURL(manifestUrl);
+  firmwareUrl=null; manifestUrl=null;
+}
+function setStatus(message, kind='warn'){
+  statusBox.textContent=message;
+  statusBox.className='status '+kind;
+}
+function refreshBoard(){
+  const custom=!(boardSelect.value in fixedBoards);
+  chipField.classList.toggle('hidden',!custom);
+  const board=chosenBoard();
+  boardHint.textContent='الشريحة المحددة: '+board.chip+'. تأكد أن ملف النظام مبني للوحة نفسها.';
+  if(firmwareInput.files.length) buildManifest();
+  else setStatus('اختر ملف Firmware مدمجًا ومناسبًا للوحة '+board.name+'.','warn');
+}
+function buildManifest(){
+  revokeUrls();
+  const file=firmwareInput.files && firmwareInput.files[0];
+  if(!file){installWrap.hidden=true;fileLabel.textContent='لم يتم اختيار ملف';filePill.querySelector('.dot').classList.remove('ready');return;}
+  if(!file.name.toLowerCase().endsWith('.bin')){
+    installWrap.hidden=true;setStatus('الملف المختار ليس بامتداد .bin. اختر ملف Firmware مدمجًا.','bad');return;
+  }
+  const board=chosenBoard();
+  firmwareUrl=URL.createObjectURL(file);
+  const manifest={
+    name:'C9Z Firmware - '+board.name,
+    version:'1.0.0',
+    new_install_prompt_erase:true,
+    builds:[{chipFamily:board.chip,parts:[{path:firmwareUrl,offset:0}]}]
+  };
+  manifestUrl=URL.createObjectURL(new Blob([JSON.stringify(manifest)],{type:'application/json'}));
+  installButton.setAttribute('manifest',manifestUrl);
+  installButton.manifest=manifestUrl;
+  installWrap.hidden=false;
+  fileLabel.textContent=file.name+' ('+(file.size/1024/1024).toFixed(2)+' MB)';
+  filePill.querySelector('.dot').classList.add('ready');
+  setStatus('تم تجهيز ملف '+board.name+'. تأكد أنه ملف merged صالح لهذه اللوحة قبل الاتصال.','good');
+}
+boardSelect.addEventListener('change',refreshBoard);
+chipSelect.addEventListener('change',refreshBoard);
+firmwareInput.addEventListener('change',buildManifest);
+installButton.addEventListener('state-changed',(event)=>{
+  const state=event.detail||{};
+  if(state.state==='finished') setStatus('اكتملت عملية الفلاش. افصل الجهاز بعد التأكد من انتهاء العملية ثم أعد تشغيله.','good');
+  else if(state.state==='error') setStatus('فشل التثبيت: '+(state.message||'تحقق من المنفذ والملف وتوافق الشريحة.'),'bad');
+  else if(state.message) setStatus(state.message,'warn');
+});
+refreshBoard();
+</script>
+</body>
+</html>
